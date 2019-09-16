@@ -20,6 +20,7 @@ Table of Contents
     * [publish](#pbulish)
     * [request](#request)
     * [wait](#wait)
+* [Limitations](#limitations)
 * [Installation](#installation)
 * [Usage](#usage)
 
@@ -194,11 +195,26 @@ each request.
 Installation
 ============
 
+* Important:
+    Official openresty cannot support nats pool (set_keepalive) because of the existence of heartbeat with NATs server.
+    
+    File src/ngx_http_lua_socket_tcp.c handled the heartbeat, thus maintaining the connection.
+
+    You need replace openresty-1.15.8.2/bundle/ngx_lua-0.10.15/src/ngx_http_lua_socket_tcp.c, and rebuild openresty.
+
+    lua-resty-nats is test under openresty-1.15.8.1/openresty-1.15.8.2.
+
 With [LuaRocks](https://luarocks.org/):
 
 ```
-$ luarocks install lua-resty-nats
+    luarocks install lua-resty-jit-uuid
+    luarocks install lua-resty-nats
 ```
+
+Or simplely put 
+    jit-uuid.lua  (https://github.com/thibaultcha/lua-resty-jit-uuid/tree/master/lib/resty) 
+    nats.lua      (https://github.com/lijianbing/lua-resty-nats/tree/master/lib/resty)
+under openresty/lualib/resty/.
 
 [Back to TOC](#table-of-contents)
 
