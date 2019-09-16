@@ -198,6 +198,7 @@ With [LuaRocks](https://luarocks.org/):
 
 ```
 $ luarocks install lua-resty-nats
+```
 
 [Back to TOC](#table-of-contents)
 
