@@ -1,7 +1,7 @@
 package = "lua-resty-nats"
 version = "0.1.0-1"
 source = {
-   url = "git+https://github.com/lijianbing/lua-resty-nats.git"
+   url = "git+https://github.com/lijianbing/lua-resty-nats.git",
    tag = "0.1.0"
 }
 description = {
